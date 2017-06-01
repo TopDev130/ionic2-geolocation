@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-segment [(ngModel)]="formtype" (ionChange)="updateForms()">
+      <ion-segment-button value="form-template" class="ion-segment-small">
+        Templates
+        <ion-badge color="fusionblue" item-right>{{formsService.getFormsTemplate().length}}</ion-badge>
+      </ion-segment-button>
+      <ion-segment-button value="form-saved" class="ion-segment-small">
+        Saved
+        <ion-badge color="fusionblue" item-right>{{formsService.getFormsSaved().length}}</ion-badge>
+      </ion-segment-button>
+      <ion-segment-button value="form-completed" class="ion-segment-small">
+        Completed
+        <ion-badge color="fusionblue" item-right>{{formsService.getFormsCompleted().length}}</ion-badge>
+      </ion-segment-button>  
+    </ion-segment>
+
+    <ion-buttons end>
+      <button ion-button (click)="refreshTapped($event)">
+        <ion-icon ios="ios-refresh-circle-outline" md="md-refresh-circle"></ion-icon>
+      </button>      
+      <button ion-button (click)="settingsTapped($event)">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons> 
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary" [(ngModel)]="searchQuery" (ionInput)="getForms($event)">
+    </ion-searchbar>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content>
+    <ion-list>      
+        <button ion-item *ngFor="let form of updateForms()" (click)="itemTapped($event, form)">            
+            <ion-avatar item-left>
+                <ion-icon name="{{convertAvatarType(form.avatar)}}" class="ion-loading-avatar"></ion-icon>
+            </ion-avatar>              
+            <h2>{{form.name}}</h2>
+            <p>{{form.description}}</p>
+            <p *ngIf="formtype == 'form-saved' || formtype == 'form-completed'">{{form.Date}}</p>
+            <ion-icon *ngIf="form.lifecycle != null && form.lifecycle.activationdate != null" [style.color]="isActivated(form.lifecycle.activationdate) ? '#6fc387' : '#f53d3d'" name="flash" item-right></ion-icon>
+            <ion-icon *ngIf="form.lifecycle != null && form.lifecycle.expirydate != null" [style.color]="hasExpired(form.lifecycle.expirydate) ? '#f53d3d' : '#6fc387'" name="calendar" item-right></ion-icon>
+            <ion-icon *ngIf="form.location != null && form.location.lat != null" color="fusiongray" name="pin" item-right></ion-icon>
+        </button>
+    </ion-list>
+</ion-content>
+

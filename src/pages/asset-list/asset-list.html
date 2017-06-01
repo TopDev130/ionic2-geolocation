@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Assets</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content asset-list">
+  <ion-card *ngFor="let asset of assets" class="asset">
+
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="asset.profilePic">
+        </ion-avatar>
+        {{asset.name}}
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content class="outer-content">
+      <ion-list>
+        <button ion-item *ngFor="let session of asset.sessions" (click)="goToSessionDetail(session)">
+          <h3>{{session.name}}</h3>
+        </button>
+        <button ion-item (click)="goToAssetDetail(asset)">
+          <h3>About {{asset.name}}</h3>
+        </button>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-item>
+      <button (click)="goToAssetTwitter(asset)" clear item-left>
+        <ion-icon name="map"></ion-icon>
+        Find On Map
+      </button>
+      <button (click)="openAssetShare(asset)" clear item-right>
+        <ion-icon name="color-wand"></ion-icon>
+        Action
+      </button>
+    </ion-item>
+
+  </ion-card>
+</ion-content>

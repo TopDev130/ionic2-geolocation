@@ -1,0 +1,165 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$text-color:        #000;
+$background-color:  #fff;
+
+.ion-loading-avatar {
+  font-size: 35px;
+  color : #6fc387;
+}
+
+.ion-settings-avatar {
+  font-size: 40px !important;
+  color : #6fc387;
+}
+
+.ion-button-icon-1 {
+  font-size: 35px;
+  color : #6fc387;
+}
+
+.ion-button-icon-2 {
+  font-size: 35px;
+  color : #c0392b;
+}
+
+.form-list {
+  padding: 20px 0px 0px 0px;
+}
+
+.ion-no-text-overflow {
+  text-overflow: clip;
+}
+
+.ion-tab-footer {
+  font-size: 12px;
+  text-align: right;
+}
+
+.ion-tab-viewer-footer {
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #424242;  
+}
+
+.ion-label-required {
+  font-size: 12px;
+  padding-left: 15px;
+}
+
+.form-position-title {
+  padding: 0 12px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #424242;
+}
+
+/* This class exists because searchbar transparency causes issues - 2.0.0-beta.7*/
+.ion-searchbar-override {
+  background: #fff;
+}
+
+.ion-nav-icon-size {
+  font-size: 2rem;
+}
+
+.logo-text-main {
+  color: #60646B;
+}
+
+.logo-text-main-light {
+  color: #ecf0f1;
+}
+
+.ion-segment-small {
+  font-size: 8px;
+}
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #6fc387,
+  secondary:  #FC6042,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  fusionblue: #53ACEB,
+  fusiongray: #bdc3c7,
+  mapshapeblue: #2980b9,
+  mapshapegreen: #16a085,
+  mapshapeorange: #d35400,
+  favorite:   #69BB7B,
+  twitter:    #53ACEB,
+  github:     #000000,
+  instagram:  #235D8D
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+$headings-font-weight: 300 !default;
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+// Use the primary color as the background for the toolbar-md-background
+$toolbar-md-background:                   color($colors, primary);
+
+// Use the default background for the tabbar since it inherits from toolbar
+$tabbar-md-background:                    #f8f8f8;
+
+// Change the color of the tabs text
+$tab-button-md-active-color:              color($colors, primary);
+$tab-button-md-inactive-color:            #8c8c8c;
+
+// Change the color of the segment button text
+$toolbar-md-active-color:                 #fff;
+$toolbar-md-inactive-color:               #fff;
+$segment-button-md-text-color-activated:  #fff;
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+$ionicons-font-path: "../assets/fonts";
+@import "ionic.ionicons";

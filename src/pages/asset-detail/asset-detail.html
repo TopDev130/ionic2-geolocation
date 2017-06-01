@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{asset.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="asset-detail">
+
+  <div text-center>
+    <img [src]="asset.profilePic" [alt]="asset.name"><br>
+  </div>
+
+  <p>{{asset.about}}</p>
+
+</ion-content>

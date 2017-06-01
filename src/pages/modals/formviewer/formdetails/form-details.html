@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="closeFormTapped()">Cancel</button>
+    </ion-buttons>
+
+    <ion-title>
+      Form Details
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="startFormTapped()">Start</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-list>
+
+    <ion-item>
+      <ion-avatar item-left>
+        <ion-icon name="{{formAvatar}}" class="ion-loading-avatar"></ion-icon>
+      </ion-avatar>
+      <h2>{{formName}}</h2>
+      <p>{{formDescription}}</p>
+    </ion-item>
+
+    <ion-item *ngIf="activationDetails != ''">
+      Activation
+      <ion-note item-right>
+        {{activationDetails}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item *ngIf="expiryDetails != ''">
+      Expiry
+      <ion-note item-right>
+        {{expiryDetails}}
+      </ion-note>
+    </ion-item>    
+
+    <ion-item>
+      Total Sections
+      <ion-note item-right>
+        {{formSectionsNo}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      Total Screens
+      <ion-note item-right>
+        {{formScreensNo}}
+      </ion-note>
+    </ion-item>
+    
+    <ion-item>
+      Total Fields
+      <ion-note item-right>
+        {{formFieldsNo}}
+      </ion-note>
+    </ion-item>   
+
+    <ion-item *ngIf="locationDetails != ''">
+      Location
+      <ion-note item-right>
+        {{locationDetails}}
+      </ion-note>
+    </ion-item> 
+
+  </ion-list>
+
+  <!--<ion-list>
+    <button ion-item (click)="resetFilters()" color="danger" detail-none class="reset-filters">
+      Reset All Filters
+    </button>
+  </ion-list>-->
+
+</ion-content>

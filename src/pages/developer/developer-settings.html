@@ -1,0 +1,254 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PSI Admin</ion-title>
+    <!--<ion-buttons end>
+      <button (click)="saveDeveloperSettings()">Close</button>
+    </ion-buttons>-->    
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list no-border>
+
+    <ion-list-header>
+      Device
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon color="primary" name='key' item-left></ion-icon>
+      Universally Unique Identifier
+      <ion-note item-right>
+      {{fusionUUID}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name='phone-portrait' item-left></ion-icon>
+      Model
+      <ion-note item-right>
+      {{fusionModel}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name='logo-android' item-left></ion-icon>
+      Platform
+      <ion-note item-right>
+      {{fusionPlatform}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name='at' item-left></ion-icon>
+      Version
+      <ion-note item-right>
+      {{fusionVersion}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name='globe' item-left></ion-icon>
+      Manufacturer
+      <ion-note item-right>
+      {{fusionManufacturer}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name='flash' item-left></ion-icon>
+      Serial
+      <ion-note item-right>
+      {{fusionSerial}}
+      </ion-note>
+    </ion-item>                    
+
+  </ion-list>
+
+  <ion-list no-border>
+
+    <ion-list-header>
+      General
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon color="primary" name='build' item-left></ion-icon>
+      Version
+      <ion-note item-right>
+      0.0.0.3
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name='code' item-left></ion-icon>
+      Status
+      <ion-note item-right>
+      ALPHA
+      </ion-note>
+    </ion-item>    
+
+    <ion-item>
+      <ion-toggle checked="false"></ion-toggle>
+      <ion-label>
+        Advanced Logging
+      </ion-label>
+      <ion-icon color="primary" name='analytics' item-left></ion-icon>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+
+    <ion-list-header>
+      Diagnostics
+    </ion-list-header>  
+
+    <ion-item>
+      <ion-icon color="primary" name="battery-full" item-left></ion-icon>
+      <ion-label>Battery Status</ion-label>
+      <ion-label text-right>{{batteryStatus}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name="wifi" item-left></ion-icon>
+      <ion-label>Connection Type</ion-label>
+      <ion-label text-right>{{fusionConnStatus}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name="camera" item-left></ion-icon>
+      <ion-label>Camera Availability</ion-label>
+      <ion-label text-right>{{cameraAvailable}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name="pin" item-left></ion-icon>
+      <ion-label>Location Availability</ion-label>
+      <ion-label text-right>{{locationAvailable}}</ion-label>
+    </ion-item>  
+
+    <ion-item>
+      <ion-icon color="primary" name="bluetooth" item-left></ion-icon>
+      <ion-label>Bluetooth Availability</ion-label>
+      <ion-label text-right>{{bluetoothAvailable}}</ion-label>
+    </ion-item>        
+
+    <ion-item>
+      <ion-icon color="primary" name="finger-print" item-left></ion-icon>
+      <ion-label>Fingerprint</ion-label>
+      <button color="dark" item-right (click)="startFingerprintAuth()">TEST</button>
+    </ion-item>  
+
+    <ion-item>
+      <ion-icon color="primary" name="notifications" item-left></ion-icon>
+      <ion-label>Notification (5 second delay)</ion-label>
+      <button color="dark" item-right (click)="startNotificationsTest()">TEST</button>
+    </ion-item>   
+
+    <ion-item>
+      <ion-icon color="primary" name="barcode" item-left></ion-icon>
+      <ion-label>Barcode Scanner</ion-label>
+      <button color="dark" item-right (click)="startBarcodeTest()">TEST</button>
+    </ion-item>  
+
+    <ion-item>
+      <ion-icon color="primary" name="card" item-left></ion-icon>
+      <ion-label>Card IO</ion-label>
+      <button color="dark" item-right (click)="startCardIOTest()">TEST</button>
+    </ion-item>               
+
+  </ion-list>
+
+  <ion-list>
+
+    <ion-list-header>
+      Database Tester
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Database Type</ion-label>
+      <ion-select [(ngModel)]="dbTesterType">
+        <ion-option>SQLite</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Database Name:</ion-label>
+        <ion-input [(ngModel)]=dbTesterName></ion-input>                           
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Table Name:</ion-label>
+        <ion-input [(ngModel)]=dbTesterTable></ion-input>                           
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Field Name:</ion-label>
+        <ion-input [(ngModel)]=dbTesterFieldName></ion-input>                           
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Field Value:</ion-label>
+        <ion-input [(ngModel)]=dbTesterFieldValue></ion-input>                           
+    </ion-item>        
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Initialize Database</ion-label>
+      <button color="dark" item-right (click)="startDBInitializeTest()">TEST</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Close Database</ion-label>
+      <button color="dark" item-right (click)="startDBCloseTest()">TEST</button>
+    </ion-item>    
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Delete Database</ion-label>
+      <button color="dark" item-right (click)="startDBDeletionTest()">TEST</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Create Table</ion-label>
+      <button color="dark" item-right (click)="startDBTableCreateTest()">TEST</button>
+    </ion-item>   
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Delete Table</ion-label>
+      <button color="dark" item-right (click)="startDBTableDeleteTest()">TEST</button>
+    </ion-item>   
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Get Table Data</ion-label>
+      <button color="dark" item-right (click)="startDBTableGetDataTest()">TEST</button>
+    </ion-item>   
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Add Table Data</ion-label>
+      <button color="dark" item-right (click)="startDBTableAddDataTest()">TEST</button>
+    </ion-item>   
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Update Table Data</ion-label>
+      <button color="dark" item-right (click)="startDBTableUpdateDataTest()">TEST</button>
+    </ion-item>   
+
+    <ion-item>
+      <ion-icon color="primary" name="analytics" item-left></ion-icon>
+      <ion-label>Delete Table Data</ion-label>
+      <button color="dark" item-right (click)="startDBTableDeleteDataTest()">TEST</button>
+    </ion-item>
+
+  </ion-list>  
+
+</ion-content>

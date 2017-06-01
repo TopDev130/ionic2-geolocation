@@ -1,0 +1,32 @@
+{
+  "name": "fusion-app-ionic",
+  "app_id": "1bf85394",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/user/login",
+      "proxyUrl": "https://api.psi-fusion.com"
+    },
+    {
+      "path": "/instance/user",
+      "proxyUrl": "https://api.psi-fusion.com"
+    },
+    {
+      "path": "/instance",
+      "proxyUrl": "https://api.psi-fusion.com"
+    },
+    {
+      "path": "/form/user",
+      "proxyUrl": "https://api.psi-fusion.com"
+    },
+    {
+      "path": "/workflow/startrun",
+      "proxyUrl": "https://api.psi-fusion.com"
+    },
+    {
+      "path": "/workflow/resumerun",
+      "proxyUrl": "https://api.psi-fusion.com"
+    }
+  ]
+}

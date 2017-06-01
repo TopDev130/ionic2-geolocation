@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Cancel</button>
+    </ion-buttons>
+
+    <ion-title>
+      Edit Map Settings
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="applySettings()">Done</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-list>
+    <ion-list-header>Filter Asset Types</ion-list-header>
+
+    <ion-item>
+      <ion-label>Markets</ion-label>
+      <ion-toggle [(ngModel)]="showMarkets" color="secondary"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Litter</ion-label>
+      <ion-toggle [(ngModel)]="showLitter" color="secondary"></ion-toggle>
+    </ion-item>    
+
+    <ion-list-header>Map Options</ion-list-header>
+
+    <ion-item>
+        <ion-label>Map Style</ion-label>
+        <ion-select [(ngModel)]="mapStyle">
+            <ion-option>ROADMAP</ion-option>
+            <ion-option>SATELLITE</ion-option>
+            <ion-option>HYBRID</ion-option>
+            <ion-option>TERRAIN</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Travel Mode</ion-label>
+        <ion-select [(ngModel)]="travelMode">
+            <ion-option>DRIVING</ion-option>
+            <ion-option>TRANSIT</ion-option>
+            <ion-option>BICYCLING</ion-option>
+            <ion-option>WALKING</ion-option>
+        </ion-select>
+    </ion-item>  
+
+    <ion-item>
+      <ion-label>Directions</ion-label>
+      <ion-toggle [(ngModel)]="doDirections" color="secondary"></ion-toggle>
+    </ion-item>      
+
+    <ion-list-header>Accuracy is estimated at {{accuracy}} meters</ion-list-header>           
+
+  </ion-list>
+
+</ion-content>

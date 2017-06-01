@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="closeSettingsTapped()">Cancel</button>
+    </ion-buttons>
+
+    <ion-title>
+      Form Settings
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="saveSettingsTapped()">Apply</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-list>
+
+    <ion-list-header>Configure options for form styling</ion-list-header>
+
+    <ion-item>
+        <ion-label>Form Navigation Style</ion-label>
+        <ion-select [(ngModel)]="formNavStyle">
+            <ion-option>Toolbar - Left</ion-option>
+            <ion-option>Toolbar - Right</ion-option>
+            <ion-option>Floating - Top</ion-option>
+            <ion-option>Floating - Bottom</ion-option>
+        </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <!--<ion-list>
+    <button ion-item (click)="resetFilters()" color="danger" detail-none class="reset-filters">
+      Reset All Filters
+    </button>
+  </ion-list>-->
+
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+      <ion-segment-button value="all">
+        All
+        <ion-badge color="fusionblue" item-right>{{lifecycleData.length}}</ion-badge>
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Rejected
+        <ion-badge color="fusionblue" item-right>0</ion-badge>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                  [(ngModel)]="queryText"
+                  (ionInput)="updateSchedule()"
+                  placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-item>
+      <ion-label>Select Schedule Date</ion-label>
+      <ion-datetime displayFormat='MMM DD YYYY' pickerFormat='MMM DD YYYY' [(ngModel)]="scheduleDate" (ionChange)="updateSchedule()"></ion-datetime>                        
+  </ion-item>  
+</ion-header>
+
+<ion-content class="schedule">
+
+  <ion-list>
+     <!-- REMOVED DURING RC0 CONVERSION - PUT BACK LATER - <button ion-item *ngFor="let lcdata of lifecycleData | orderby" (click)="itemTapped($event, lcdata)">-->
+      <button ion-item *ngFor="let lcdata of lifecycleData" (click)="itemTapped($event, lcdata)">
+          <h3>{{lcdata.name}}</h3>
+          <p *ngIf="getTime(lcdata.lifecycle.activationdate) != null">
+            Start Time: {{getTime(lcdata.lifecycle.activationdate)}}
+          </p>
+          <p *ngIf="getTime(lcdata.lifecycle.activationdate) == null">
+            Start Time: N/A
+          </p>
+          <p *ngIf="getTime(lcdata.lifecycle.expirydate) != null">
+            End Time: {{getTime(lcdata.lifecycle.expirydate)}}
+          </p>                       
+          <p *ngIf="getTime(lcdata.lifecycle.expirydate) == null">
+            End Time: N/A
+          </p>
+          <p>{{lcdata.description}}</p>
+      </button>
+  </ion-list>
+
+</ion-content>

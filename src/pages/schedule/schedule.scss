@@ -1,0 +1,22 @@
+$categories: (
+ preparation: color($colors, primary),
+ job: #AC282B,
+ delivery: #8E8D93,
+ investigation: #FE4C52,
+ expenses: #FD8B2D,
+ tagging: #FED035,
+ food: #3BC7C4,
+);
+
+@function auxiliary-categories() {
+  @return map-remove($categories);
+}
+
+.schedule {
+  @each $track, $value in auxiliary-categories() {
+   ion-item-sliding[track=#{$track}] ion-label {
+     border-left: 2px solid $value;
+     padding-left: 10px;
+   }
+  }
+}

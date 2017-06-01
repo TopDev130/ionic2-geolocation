@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{mapTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="findMyLocation()">
+        <ion-icon ios="ios-navigate-outline" md="md-navigate"></ion-icon>
+      </button>         
+      <button ion-button (click)="refreshMap()">
+        <ion-icon ios="ios-refresh-circle-outline" md="md-refresh-circle"></ion-icon>
+      </button>
+      <button ion-button (click)="openSettings()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>            
+    </ion-buttons>    
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="map-page">
+  <div id="map"></div>
+
+  <button ion-button class="over-map-position-2" (click)="scanBarcode()">
+    Scan Barcode
+  </button>
+
+  <button [hidden]="!showReport" class="over-map-position-1" (click)="startForm()">
+      Report
+  </button>
+
+  <ion-list [hidden]="!showOverlay" class="over-map-position-1">
+    <ion-item>
+      <ion-label color="primary">Markets</ion-label>
+    </ion-item>   
+    <ion-item text-wrap>
+      <ion-label *ngIf="mapObjects != null">{{closestMarketName}}</ion-label>
+    </ion-item>       
+    <ion-item>
+      <ion-icon color="mapshapegreen" name='pin' item-left></ion-icon>
+      <ion-note item-right>
+      Available
+      </ion-note>
+    </ion-item> 
+    <ion-item>
+      <ion-icon color="mapshapeblue" name='pin' item-left></ion-icon>
+      <ion-note item-right>
+      Permanent Trader
+      </ion-note>
+    </ion-item>
+    <ion-item> 
+      <ion-icon color="mapshapeorange" name='pin' item-left></ion-icon>
+      <ion-note item-right>
+      Temporary Trader
+      </ion-note>
+    </ion-item>   
+    <ion-item *ngIf="pitchSelected.name != ''">
+        Name: {{pitchSelected.name}}
+    </ion-item>
+    <ion-item *ngIf="pitchSelected.description != ''">
+        Type: {{pitchSelected.description}}
+    </ion-item> 
+    <ion-item [hidden]="!showProximityAlert">
+        Proximity: {{proximityData}}   
+    </ion-item>       
+    <ion-item>
+      <button item-right (click)="verifyMarket()">
+          Verify
+      </button> 
+      <button item-right (click)="bookPitch()">
+          Book
+      </button>    
+      <button item-right (click)="toggleOverlay()">
+          Hide
+      </button>          
+    </ion-item> 
+  </ion-list>  
+
+  <button ion-button [hidden]="!showOptions" class="over-map-position-1" (click)="toggleOverlay()">
+      Options
+  </button>    
+</ion-content>
